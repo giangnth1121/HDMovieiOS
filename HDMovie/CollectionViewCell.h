@@ -7,9 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "UIKit+AFNetworking/UIImageView+AFNetworking.h"
 @interface CollectionViewCell : UICollectionViewCell
-@property (weak, nonatomic) IBOutlet UILabel *textLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *thumbIV;
 @property (weak, nonatomic) IBOutlet UILabel *nameLb;
 

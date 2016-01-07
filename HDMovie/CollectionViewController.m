@@ -21,15 +21,6 @@ static NSString * const reuseIdentifier = @"Cell";
 
 - (void)reload:(__unused id)sender {
     self.navigationItem.rightBarButtonItem.enabled = NO;
-    
-    NSURLSessionTask *task = [Post globalTimelinePostsWithBlock:^(NSArray *posts, NSError *error) {
-        if (!error) {
-            self.posts = posts;
-            [self.collectionView reloadData];
-        }
-    }];
-    [task resume];
-
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     [manager GET:LINK_CONFIG parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {
         NSLog(@"JSON: %@", responseObject);
@@ -37,14 +28,24 @@ static NSString * const reuseIdentifier = @"Cell";
         [AppDelegate setLink:llba];
         [AppDelegate setSign:[responseObject valueForKeyPath:@"sign"]];
         NSDictionary *parameters = @{@"sign": [AppDelegate appSign]};
-//        [ApiConnect getHomePage:parameters progress:nil success:^(NSURLSessionDataTask *task, id  _Nullable responseObject) {
-//            NSLog(@"JSON: %@", responseObject);
-//            NSArray *arr = [responseObject valueForKeyPath:@"r"];
-//        } failure:^(NSURLSessionDataTask * _Nullable task, NSError *error) {
-//            NSLog(@"ERORR: %@", error);
-//        }];
         dispatch_async(dispatch_get_global_queue(0, 0), ^{
             NSDictionary *dict= [ApiConnect sendRequest:HOMEPAGE method:@"GET" params:parameters];
+            NSMutableArray *newData =  [[NSMutableArray alloc] init];
+            if(dict == nil){
+                
+            }else{
+                NSDictionary *rr = [dict valueForKeyPath:@"r"];
+                NSArray *movStr = [rr valueForKeyPath:@"MoviesByCates"];
+                for (NSDictionary* cate in movStr) {
+                    NSString *data =  [NSString stringWithFormat:@"%@",cate];
+                    Categories *catee = [[Categories alloc] initWithDictionary:cate error:nil];
+                    [newData addObject:catee];
+                }
+                if([newData count] > 0){
+                    self.listData = newData;
+                    [self.collectionView reloadData];
+                }
+            }
         });
     } failure:^(NSURLSessionTask *operation, NSError *error) {
         NSLog(@"Error: %@", error);
@@ -89,21 +90,24 @@ static NSString * const reuseIdentifier = @"Cell";
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
 
-    return 1;
+    return [self.listData count];
 }
 
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
 
-    return [self.posts count];
+    return [[(Categories *)[self.listData objectAtIndex:section] Movies] count];
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     CollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
     
     // Configure the cell
-    cell.textLabel.text = [NSString stringWithFormat:@"%li", (long)indexPath.row];
-    
+    Categories *cat = [self.listData objectAtIndex:indexPath.section];
+    NSDictionary *nsDic = [cat.Movies objectAtIndex:indexPath.row];
+    Movie *mov = [[Movie alloc] initWithDictionary:nsDic error:nil];
+    cell.nameLb.text = [mov MovieName];
+    [cell.thumbIV setImageWithURL:[NSURL URLWithString:[mov Poster100x149]]];
     return cell;
 }
 
@@ -111,7 +115,7 @@ static NSString * const reuseIdentifier = @"Cell";
     UICollectionReusableView *reusableview = nil;
     if(kind == UICollectionElementKindSectionHeader){
         HeaderCollectionView *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HeaderCell" forIndexPath:indexPath];
-         NSString *title = [[NSString alloc]initWithFormat:@"Recipe Group #%i", indexPath.section + 1];
+         NSString *title = [[NSString alloc]initWithFormat:@"%@", [(Categories *)[self.listData objectAtIndex:indexPath.section] CategoryName]];
         headerView.headerLb.text = title;
         reusableview = headerView;
     }

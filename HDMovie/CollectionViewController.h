@@ -10,8 +10,10 @@
 #import "Post.h"
 #import "ApiConnect.h"
 #import "AppDelegate.h"
+#import "Categories.h"
+#import "Movie.h"
 
 @interface CollectionViewController : UICollectionViewController
-@property (nonatomic, strong, nullable) UIRefreshControl *refreshControl NS_AVAILABLE_IOS(6_0) __TVOS_PROHIBITED;
-@property(nonatomic,retain) NSMutableArray *listData;
+@property (nonatomic, strong, nullable) UIRefreshControl *refreshControl ;
+@property (nonatomic,strong,nullable) NSMutableArray * listData;
 @end
