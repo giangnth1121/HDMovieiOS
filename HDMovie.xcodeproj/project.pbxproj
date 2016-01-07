@@ -36,6 +36,7 @@
 		336EB7C31C3E159A004FCBF9 /* JSONModelClassProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 336EB7BD1C3E159A004FCBF9 /* JSONModelClassProperty.m */; };
 		336EB7C41C3E159A004FCBF9 /* JSONModelError.m in Sources */ = {isa = PBXBuildFile; fileRef = 336EB7BF1C3E159A004FCBF9 /* JSONModelError.m */; };
 		336EB7D61C3E240E004FCBF9 /* UIKit+AFNetworking in Resources */ = {isa = PBXBuildFile; fileRef = 336EB7D51C3E240E004FCBF9 /* UIKit+AFNetworking */; };
+		336EB7D91C3E28CF004FCBF9 /* DetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 336EB7D81C3E28CF004FCBF9 /* DetailController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -119,6 +120,8 @@
 		336EB7D21C3E15F4004FCBF9 /* JSONValueTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONValueTransformer.h; sourceTree = "<group>"; };
 		336EB7D31C3E15F4004FCBF9 /* JSONValueTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONValueTransformer.m; sourceTree = "<group>"; };
 		336EB7D51C3E240E004FCBF9 /* UIKit+AFNetworking */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "UIKit+AFNetworking"; sourceTree = "<group>"; };
+		336EB7D71C3E28CF004FCBF9 /* DetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailController.h; sourceTree = "<group>"; };
+		336EB7D81C3E28CF004FCBF9 /* DetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -210,6 +213,8 @@
 				335AF6C51C3CC49E006EA113 /* Post.m */,
 				335AF6C71C3CC4C9006EA113 /* User.h */,
 				335AF6C81C3CC4C9006EA113 /* User.m */,
+				336EB7D71C3E28CF004FCBF9 /* DetailController.h */,
+				336EB7D81C3E28CF004FCBF9 /* DetailController.m */,
 			);
 			path = HDMovie;
 			sourceTree = "<group>";
@@ -449,6 +454,7 @@
 				335AF6C91C3CC4C9006EA113 /* User.m in Sources */,
 				335AF6B81C3A7A87006EA113 /* CollectionViewCell.m in Sources */,
 				335AF68B1C3A682D006EA113 /* HDMovie.xcdatamodeld in Sources */,
+				336EB7D91C3E28CF004FCBF9 /* DetailController.m in Sources */,
 				335AF6BB1C3CB171006EA113 /* HeaderCollectionView.m in Sources */,
 				336EB7C11C3E159A004FCBF9 /* JSONModel.m in Sources */,
 				335AF6821C3A682D006EA113 /* AppDelegate.m in Sources */,

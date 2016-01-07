@@ -124,6 +124,16 @@ static NSString * const reuseIdentifier = @"Cell";
 
 #pragma mark <UICollectionViewDelegate>
 
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    NSLog(@"%li/%li",indexPath.section, indexPath.row);
+    DetailController *monitorMenuViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"DetailController"];
+    Categories *cat = [self.listData objectAtIndex:indexPath.section];
+    NSDictionary *nsDic = [cat.Movies objectAtIndex:indexPath.row];
+    Movie *mov = [[Movie alloc] initWithDictionary:nsDic error:nil];
+    monitorMenuViewController.movieId = [mov MovieID];
+    [self presentViewController:monitorMenuViewController animated:NO completion:nil];
+}
+
 /*
 // Uncomment this method to specify if the specified item should be highlighted during tracking
 - (BOOL)collectionView:(UICollectionView *)collectionView shouldHighlightItemAtIndexPath:(NSIndexPath *)indexPath {

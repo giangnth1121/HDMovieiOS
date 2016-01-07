@@ -20,5 +20,7 @@
 @property (strong, nonatomic) NSString<Optional>* KnownAs;
 @property (strong, nonatomic) NSString<Optional>* Poster100x149;
 @property (strong, nonatomic) NSString<Optional>* CategoryID;
-
+@property (strong, nonatomic) NSString<Optional>* PlotVI;
+@property (strong, nonatomic) NSString<Optional>* PlotEN;
+@property (strong, nonatomic) NSString<Optional>* Backdrop;
 @end

@@ -12,6 +12,7 @@
 #import "AppDelegate.h"
 #import "Categories.h"
 #import "Movie.h"
+#import "DetailController.h"
 
 @interface CollectionViewController : UICollectionViewController
 @property (nonatomic, strong, nullable) UIRefreshControl *refreshControl ;
