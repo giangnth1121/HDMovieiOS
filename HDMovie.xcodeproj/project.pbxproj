@@ -37,6 +37,8 @@
 		336EB7C41C3E159A004FCBF9 /* JSONModelError.m in Sources */ = {isa = PBXBuildFile; fileRef = 336EB7BF1C3E159A004FCBF9 /* JSONModelError.m */; };
 		336EB7D61C3E240E004FCBF9 /* UIKit+AFNetworking in Resources */ = {isa = PBXBuildFile; fileRef = 336EB7D51C3E240E004FCBF9 /* UIKit+AFNetworking */; };
 		336EB7D91C3E28CF004FCBF9 /* DetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 336EB7D81C3E28CF004FCBF9 /* DetailController.m */; };
+		33D4CBBB1C3F7A1F00F4235C /* UIKit+AFNetworking in Sources */ = {isa = PBXBuildFile; fileRef = 336EB7D51C3E240E004FCBF9 /* UIKit+AFNetworking */; };
+		33D4CBBC1C3F7A2900F4235C /* AFNetworking in Sources */ = {isa = PBXBuildFile; fileRef = 335AF6F41C3CCA2D006EA113 /* AFNetworking */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -444,6 +446,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				33D4CBBC1C3F7A2900F4235C /* AFNetworking in Sources */,
+				33D4CBBB1C3F7A1F00F4235C /* UIKit+AFNetworking in Sources */,
 				336EB7C41C3E159A004FCBF9 /* JSONModelError.m in Sources */,
 				335AF6F91C3D1824006EA113 /* Movie.m in Sources */,
 				336EB7AA1C3E1285004FCBF9 /* Categories.m in Sources */,
@@ -603,6 +607,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = HDMovie/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = me.vinhdn.HDMovie;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -614,6 +619,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = HDMovie/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = me.vinhdn.HDMovie;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
