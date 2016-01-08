@@ -10,7 +10,7 @@
 #import "ApiConnect.h"
 #import "Define.h"
 #import <QuartzCore/QuartzCore.h>
-@import AFNetworking;
+#import "AFNetworking/AFHTTPSessionManager.h"
 
 @implementation DetailController
 

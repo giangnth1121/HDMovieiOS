@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 #import "Define.h"
-@import AFNetworking;
+#import "AFNetworking/AFHTTPSessionManager.h"
 @interface AppDelegate ()
 @end
 

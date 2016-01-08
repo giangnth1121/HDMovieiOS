@@ -1,6 +1,6 @@
-// AFAppDotNetAPIClient.h
+// AFNetworking.h
 //
-// Copyright (c) 2012 Mattt Thompson (http://mattt.me/)
+// Copyright (c) 2013 AFNetworking (http://afnetworking.com/)
 // 
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -21,10 +21,21 @@
 // THE SOFTWARE.
 
 #import <Foundation/Foundation.h>
-#import "AFNetworking/AFHTTPSessionManager.h"
+#import <Availability.h>
+#import <TargetConditionals.h>
 
-@interface AFAppDotNetAPIClient : AFHTTPSessionManager
+#ifndef _AFNETWORKING_
+    #define _AFNETWORKING_
 
-+ (instancetype)sharedClient;
+    #import "AFURLRequestSerialization.h"
+    #import "AFURLResponseSerialization.h"
+    #import "AFSecurityPolicy.h"
 
-@end
+#if !TARGET_OS_WATCH
+    #import "AFNetworkReachabilityManager.h"
+#endif
+
+    #import "AFURLSessionManager.h"
+    #import "AFHTTPSessionManager.h"
+
+#endif /* _AFNETWORKING_ */
